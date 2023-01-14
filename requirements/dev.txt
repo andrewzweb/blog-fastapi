@@ -1,3 +1,4 @@
 -r test.txt
 fastapi[all]
 uvicorn[standard]
+black

@@ -12,9 +12,4 @@ def root_page():
 
 
 if __name__ == "__main__":
-    uvicorn.run(
-        app,
-        host=f"localhost",
-        port=8000,
-        log_level="debug"
-    )
+    uvicorn.run(app, host=f"localhost", port=8000, log_level="debug")

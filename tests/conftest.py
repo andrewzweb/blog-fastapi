@@ -1,4 +1,5 @@
 import os
+
 os.environ["TESTING"] = "True"
 
 import asyncio
@@ -20,5 +21,7 @@ def event_loop():
 @pytest_asyncio.fixture(scope="function")
 async def web_client():
     async with LifespanManager(app):
-        async with httpx.AsyncClient(app=app, base_url="http://test-app.io/") as _client:
+        async with httpx.AsyncClient(
+            app=app, base_url="http://test-app.io/"
+        ) as _client:
             yield _client
