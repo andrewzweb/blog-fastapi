@@ -2,3 +2,7 @@
 fastapi[all]
 uvicorn[standard]
 black
+motor
+python-jose
+bcrypt
+passlib

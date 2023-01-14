@@ -11,6 +11,12 @@ from asgi_lifespan import LifespanManager
 from app.main import app
 
 
+pytest_plugins = [
+    "tests.integration.users.fixtures_users",
+]
+
+
+
 @pytest_asyncio.fixture(scope="session")
 def event_loop():
     loop = asyncio.get_event_loop()
