@@ -9,7 +9,7 @@ class UserDatabase(Database):
 
     async def get_by_email(self, email: str) -> dict:
         user = await self.collection.find_one({"email": email})
-        if not user:
+        if user is None:
             return None
         return shm.UserDB(**user)
 

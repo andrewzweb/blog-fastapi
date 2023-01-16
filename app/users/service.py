@@ -35,7 +35,7 @@ class LoginUser:
         return True
 
     async def check_correct_password(self, user) -> bool:
-        if not sec.verify_password(self.password, user.hash_password):
+        if not sec.verify_password(self.password, user.hashed_password):
             return False
         return True
 

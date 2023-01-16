@@ -8,7 +8,7 @@ async def test_singup_user(user_in_example, web_client):
     response = await web_client.post(route, data=user_in_example.json())
 
     assert response.status_code == 201
-    assert "id" in response.json() and not "hash_password" in response.json()
+    assert "id" in response.json() and not "hashed_password" in response.json()
 
     assert response.json()["username"] == user_in_example.username
     assert response.json()["email"] == user_in_example.email

@@ -23,4 +23,3 @@ async def test_login_exist_user(user_in_example, web_client):
 
     assert response.status_code == 200
     assert "access_token" in response.json() and "token_type" in response.json()
-
