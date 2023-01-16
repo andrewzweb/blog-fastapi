@@ -24,6 +24,12 @@ class User(BaseModel):
     password: str
 
 
+class UserDB(BaseModel):
+    username: str
+    email: str
+    hash_password: str
+
+
 class UserOut(BaseModel):
     id: str
     username: str

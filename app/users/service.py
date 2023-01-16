@@ -15,18 +15,19 @@ class LoginUser:
     async def login(self):
         user = await self.get_user_from_db()
 
+        if not user:
+            raise Exception("User not found")
+
         if not await self.check_user_exist(user):
             raise Exception("Incorrect username or password")
 
         if not await self.check_correct_password(user):
             raise Exception("Incorrect username or password")
 
-        print(user)
-        token = await self.create_token(user)
-        return token
+        return await self.create_token(user)
 
     async def get_user_from_db(self) -> "user":
-        return  await database.get_by_email(self.email)
+        return await self.database.get_by_email(self.email)
 
     async def check_user_exist(self, user) -> bool:
         if user is None:
@@ -34,7 +35,7 @@ class LoginUser:
         return True
 
     async def check_correct_password(self, user) -> bool:
-        if not sec.verify_password(self.password, user.hashed_password):
+        if not sec.verify_password(self.password, user.hash_password):
             return False
         return True
 
@@ -56,7 +57,7 @@ class SingupUser:
                 "id": str(uuid.uuid4().hex),
                 "username": self.data.username,
                 "email": self.data.email,
-                "hash_password": sec.hash_password(self.data.password)
+                "hashed_password": sec.hash_password(self.data.password)
             }
 
         )
