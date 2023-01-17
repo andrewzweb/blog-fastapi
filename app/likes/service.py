@@ -14,3 +14,6 @@ class LikeAndUnlikeUseCase:
                 "user": user
             }
         )
+
+    async def analitics_by_date(self, date_from, date_to):
+        return await self.database.filter_by_date(date_from, date_to)
