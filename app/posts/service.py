@@ -12,7 +12,6 @@ class PostUseCase:
                 "id": str(uuid.uuid4().hex),
                 "title": new_post.title,
                 "description": new_post.description,
-                "user": user
+                "user": user,
             }
         )
-

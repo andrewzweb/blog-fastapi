@@ -29,6 +29,7 @@ def event_loop():
     yield loop
     loop.close()
 
+
 @pytest_asyncio.fixture(scope="function")
 async def db_engine():
     """Database engine

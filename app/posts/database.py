@@ -6,4 +6,5 @@ class PostsDatabase(Database):
     def __init__(self, collection=Collections.posts):
         super().__init__(collection)
 
+
 posts_database = PostsDatabase()

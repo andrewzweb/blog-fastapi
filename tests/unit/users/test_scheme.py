@@ -4,10 +4,7 @@ from app.users import scheme as shm
 
 
 def test_validate_login_data():
-    login_data = {
-        "email": "user@test.com",
-        "password": "test_pass"
-    }
+    login_data = {"email": "user@test.com", "password": "test_pass"}
     login = shm.Login(**login_data)
 
     assert login
@@ -22,13 +19,10 @@ def test_validate_login_wrong():
 
     with pytest.raises(Exception) as exc:
         login = shm.Login(**login_data)
-        
+
 
 def test_validate_token_data():
-    token_data = {
-        "access_token": "access_token",
-        "token_type": "token_type"
-    }
+    token_data = {"access_token": "access_token", "token_type": "token_type"}
     token = shm.Token(**token_data)
 
     assert token
@@ -41,7 +35,7 @@ def test_validate_UserIn_data():
         "username": "user_name",
         "email": "user@test.com",
         "password": "test_password",
-        "password2": "test_password"
+        "password2": "test_password",
     }
     user = shm.UserIn(**user_data)
 

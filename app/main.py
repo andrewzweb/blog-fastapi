@@ -14,6 +14,7 @@ app.include_router(api_users.router, prefix="/api/users", tags=["users"])
 app.include_router(api_posts.router, prefix="/api/posts", tags=["posts"])
 app.include_router(api_likes.router, prefix="/api/likes", tags=["likes"])
 
+
 @app.get("/")
 def root_page():
     return {"hello": "world"}

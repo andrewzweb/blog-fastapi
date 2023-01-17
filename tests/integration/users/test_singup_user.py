@@ -3,7 +3,7 @@ import pytest
 
 @pytest.mark.asyncio
 async def test_singup_user(user_in_example, web_client):
-    route = '/api/users/'
+    route = "/api/users/"
 
     response = await web_client.post(route, data=user_in_example.json())
 

@@ -5,7 +5,7 @@ import json
 @pytest.mark.asyncio
 async def test_login_exist_user(user_in_example, web_client):
     # create user
-    route = '/api/users/'
+    route = "/api/users/"
 
     response = await web_client.post(route, data=user_in_example.json())
 
@@ -13,12 +13,9 @@ async def test_login_exist_user(user_in_example, web_client):
     assert "id" in response.json() and not "hashed_password" in response.json()
 
     # login user
-    route = '/api/users/login/'
-    data = {
-        "email": user_in_example.email,
-        "password": user_in_example.password
-    }
-    
+    route = "/api/users/login/"
+    data = {"email": user_in_example.email, "password": user_in_example.password}
+
     response = await web_client.post(route, data=json.dumps(data))
 
     assert response.status_code == 200

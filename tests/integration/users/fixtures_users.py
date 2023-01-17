@@ -4,6 +4,7 @@ import pytest_asyncio
 from app.users import scheme as shm
 from app.users import service as srv
 
+
 @pytest_asyncio.fixture()
 def user_in_example():
     data = {

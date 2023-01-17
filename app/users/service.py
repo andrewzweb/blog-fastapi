@@ -41,7 +41,9 @@ class LoginUser:
 
     async def create_token(self, user):
         return shm.Token(
-            access_token=sec.create_access_token({"sub": user.email}), token_type="Bearer")
+            access_token=sec.create_access_token({"sub": user.email}),
+            token_type="Bearer",
+        )
 
 
 class SingupUser:
@@ -57,7 +59,6 @@ class SingupUser:
                 "id": str(uuid.uuid4().hex),
                 "username": self.data.username,
                 "email": self.data.email,
-                "hashed_password": sec.hash_password(self.data.password)
+                "hashed_password": sec.hash_password(self.data.password),
             }
-
         )
